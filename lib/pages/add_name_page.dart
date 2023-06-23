@@ -16,6 +16,7 @@ class _AddNamePageState extends State<AddNamePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Añadir Producto'),
+        backgroundColor: Colors.grey,
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -26,6 +27,7 @@ class _AddNamePageState extends State<AddNamePage> {
               decoration:
                   const InputDecoration(hintText: 'Escribe un producto'),
             ),
+            SizedBox(height: 20,),
             ElevatedButton(
                 onPressed: () async {
                   await addProduct(nameController.text).then((_) {

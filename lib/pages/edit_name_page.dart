@@ -18,6 +18,7 @@ class _EditNamePageState extends State<EditNamePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Editar Producto'),
+        backgroundColor: Colors.grey,
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -28,6 +29,7 @@ class _EditNamePageState extends State<EditNamePage> {
               decoration:
                   const InputDecoration(hintText: 'Escribe la modificacion'),
             ),
+            SizedBox(height: 20,),
             ElevatedButton(
                 onPressed: () async {
                   await updateProduct(arguments['uid'], nameController.text)

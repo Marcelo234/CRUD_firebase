@@ -24,3 +24,7 @@ Future<void> addProduct(String name) async {
 Future<void> updateProduct(String uid, String newName) async {
   await db.collection('product').doc(uid).set({'name':newName});
 }
+
+Future<void> deleteProduct(String uid) async {
+  await db.collection('product').doc(uid).delete();
+}
