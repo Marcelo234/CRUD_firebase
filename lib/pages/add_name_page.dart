@@ -27,6 +27,16 @@ class _AddNamePageState extends State<AddNamePage> {
               decoration:
                   const InputDecoration(hintText: 'Escribe un producto'),
             ),
+            TextField(
+              controller: nameController,
+              decoration:
+                  const InputDecoration(hintText: 'Escribe una descripción'),
+            ),
+            TextField(
+              controller: nameController,
+              decoration:
+                  const InputDecoration(hintText: 'Escribe la cantidad'),
+            ),
             SizedBox(height: 20,),
             ElevatedButton(
                 onPressed: () async {

@@ -1,6 +1,8 @@
 import 'package:crud_firebase/services/firebase_service.dart';
 import 'package:flutter/material.dart';
 
+import 'login_page.dart';
+
 class Home extends StatefulWidget {
   const Home({
     super.key,
@@ -15,8 +17,46 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('CRUD'),
-        backgroundColor: Colors.grey,
+        centerTitle: true,
+        title: Text('Productos'),
+        backgroundColor: const Color.fromARGB(255, 77, 74, 74),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text('Marcelo Ontaneda'),
+              accountEmail: Text('ontanedamarcelo74@gmail.com'),
+              currentAccountPicture: Image.asset('assets/ferreteria.png'),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 77, 74, 74),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Inicio'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.person_outline_rounded,
+              ),
+              title: Text('Perfil'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Configuracion'),
+              onTap: () {},
+            ),
+          ],
+        ),
       ),
       body: FutureBuilder(
           future: getProduct(),
@@ -26,7 +66,7 @@ class _HomeState extends State<Home> {
                 itemCount: snapshot.data?.length,
                 itemBuilder: (context, index) {
                   return Dismissible(
-                    onDismissed: (direction) async { 
+                    onDismissed: (direction) async {
                       await deleteProduct(snapshot.data?[index]['uid']);
                       snapshot.data?.removeAt(index);
                     },
@@ -89,7 +129,7 @@ class _HomeState extends State<Home> {
             }
           })),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.grey,
+        backgroundColor: const Color.fromARGB(255, 77, 74, 74),
         onPressed: () async {
           await Navigator.pushNamed(context, '/add');
           setState(() {});

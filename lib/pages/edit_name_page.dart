@@ -29,7 +29,19 @@ class _EditNamePageState extends State<EditNamePage> {
               decoration:
                   const InputDecoration(hintText: 'Escribe la modificacion'),
             ),
-            SizedBox(height: 20,),
+            TextField(
+              controller: nameController,
+              decoration:
+                  const InputDecoration(hintText: 'Escribe la descripción'),
+            ),
+            TextField(
+              controller: nameController,
+              decoration:
+                  const InputDecoration(hintText: 'Escribe la cantidad'),
+            ),
+            SizedBox(
+              height: 20,
+            ),
             ElevatedButton(
                 onPressed: () async {
                   await updateProduct(arguments['uid'], nameController.text)
