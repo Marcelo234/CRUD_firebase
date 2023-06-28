@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:crud_firebase/pages/home_page.dart';
 import 'login_page.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -63,107 +62,150 @@ class _WelcomePageState extends State<WelcomePage> {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Card(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 20.0),
-                alignment: Alignment.center,
-                child: const Text(
-                  'Bienvenido al sistema',
-                  style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+      body: Padding(
+        padding: EdgeInsets.all(35.0),
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: <Widget>[
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 20.0),
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Bienvenidos al sistema',
+                    style:
+                        TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 1.0),
+            Card(
+              elevation: 10,
+              color: const Color.fromARGB(255, 77, 74, 74),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {
+                  Navigator.popAndPushNamed(context, "/home");
+                },
+                child: ListTile(
+                  title: Text(
+                    'Productos',
+                    style: TextStyle(color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                  subtitle: FractionallySizedBox(
+                    widthFactor: 0.8,
+                    child: AspectRatio(
+                      aspectRatio: 1.0,
+                      child: Image.asset("assets/product.jpeg"),
+                    ),
+                  ),
                 ),
               ),
-              CardListItem(
-                icon: Icons.image,
-                title: 'Productos',
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Home()),
-                  );
-                },
+            ),
+            Card(
+              elevation: 10,
+              color: const Color.fromARGB(255, 77, 74, 74),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {},
+                child: ListTile(
+                  title: Text(
+                    'Proveedores',
+                    style: TextStyle(color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                  subtitle: FractionallySizedBox(
+                    widthFactor: 0.7,
+                    child: AspectRatio(
+                      aspectRatio: 1.0,
+                      child: Image.asset("assets/proveedores.png"),
+                    ),
+                  ),
+                ),
               ),
-              Image.asset(
-                'assets/product.jpeg',
-                fit: BoxFit.cover,
+            ),
+            Card(
+              elevation: 10,
+              color: const Color.fromARGB(255, 77, 74, 74),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {},
+                child: ListTile(
+                  title: Text(
+                    'Clientes',
+                    style: TextStyle(color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                  subtitle: FractionallySizedBox(
+                    widthFactor: 0.8,
+                    child: AspectRatio(
+                      aspectRatio: 1.0,
+                      child: Image.asset("assets/clientes.jpeg"),
+                    ),
+                  ),
+                ),
               ),
-              const Padding(
-                padding: EdgeInsets.all(16.0),
+            ),
+            Card(
+              elevation: 10,
+              color: const Color.fromARGB(255, 77, 74, 74),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {},
+                child: ListTile(
+                  title: Text(
+                    'Compañia',
+                    style: TextStyle(color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                  subtitle: FractionallySizedBox(
+                    widthFactor: 0.7,
+                    child: AspectRatio(
+                      aspectRatio: 1.0,
+                      child: Image.asset("assets/compania.png"),
+                    ),
+                  ),
+                ),
               ),
-              CardListItem(
-                icon: Icons.image,
-                title: 'Proveedores',
+            ),
+            Card(
+              elevation: 10,
+              color: const Color.fromARGB(255, 77, 74, 74),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: InkWell(
+                splashColor: Colors.blue.withAlpha(30),
+                onTap: () {},
+                child: ListTile(
+                  title: Text(
+                    'Almacen',
+                    style: TextStyle(color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                  subtitle: FractionallySizedBox(
+                    widthFactor: 0.8,
+                    child: AspectRatio(
+                      aspectRatio: 1.0,
+                      child: Image.asset('assets/almacen.png'),
+                    ),
+                  ),
+                ),
               ),
-              Image.asset(
-                'assets/proveedores.png',
-                fit: BoxFit.cover,
-              ),
-              const Padding(
-                padding: EdgeInsets.all(16.0),
-              ),
-              CardListItem(
-                icon: Icons.image,
-                title: 'Clientes',
-              ),
-              Image.asset(
-                'assets/clientes.jpeg',
-                fit: BoxFit.cover,
-              ),
-              const Padding(
-                padding: EdgeInsets.all(16.0),
-              ),
-              CardListItem(
-                icon: Icons.image,
-                title: 'Compañia',
-              ),
-              Image.asset(
-                'assets/compania.png',
-                fit: BoxFit.cover,
-              ),
-              const Padding(
-                padding: EdgeInsets.all(16.0),
-              ),
-              CardListItem(
-                icon: Icons.image,
-                title: 'Almacen',
-              ),
-              Image.asset(
-                'assets/almacen.png',
-                fit: BoxFit.cover,
-              ),
-              const Padding(
-                padding: EdgeInsets.all(16.0),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
-      ),
-    );
-  }
-}
-
-class CardListItem extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final VoidCallback? onTap;
-
-  const CardListItem({
-    required this.icon,
-    required this.title,
-    this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: const Color.fromARGB(255, 77, 74, 74),
-      child: ListTile(
-        leading: Icon(icon),
-        title: Text(title),
-        onTap: onTap,
       ),
     );
   }

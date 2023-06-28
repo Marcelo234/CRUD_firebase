@@ -110,10 +110,99 @@ class _HomeState extends State<Home> {
                     direction: DismissDirection.endToStart,
                     key: Key(snapshot.data?[index]['uid']),
                     child: ListTile(
-                      title: Text(snapshot.data?[index]['name']),
+                      title: Container(
+                        color: const Color.fromARGB(255, 77, 74, 74), // Establece el color de fondo gris
+                        padding: const EdgeInsets.all(
+                            16.0), // Añade un padding al Container si es necesario
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Row(
+                              children: [
+                                Icon(Icons.category,
+                                    color:
+                                        Colors.white), // Añade el primer icono
+                                SizedBox(
+                                    width:
+                                        8.0), // Espacio horizontal entre el icono y el texto
+                                Text(
+                                  'Nombre:',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors
+                                        .white, // Establece el color del texto
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              '${snapshot.data?[index]['name']}',
+                              style: const TextStyle(
+                                  color: Colors
+                                      .white), // Establece el color del texto
+                            ),
+                            const SizedBox(
+                                height:
+                                    8.0), // Espacio vertical entre las líneas
+                            const Row(
+                              children: [
+                                Icon(Icons.description,
+                                    color:
+                                        Colors.white), // Añade el segundo icono
+                                SizedBox(
+                                    width:
+                                        8.0), // Espacio horizontal entre el icono y el texto
+                                Text(
+                                  'Descripción:',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors
+                                        .white, // Establece el color del texto
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              '${snapshot.data?[index]['descripcion']}',
+                              style: const TextStyle(
+                                  color: Colors
+                                      .white), // Establece el color del texto
+                            ),
+                            const SizedBox(
+                                height:
+                                    8.0), // Espacio vertical entre las líneas
+                            const Row(
+                              children: [
+                                Icon(Icons.shopping_cart,
+                                    color:
+                                        Colors.white), // Añade el tercer icono
+                                SizedBox(
+                                    width:
+                                        8.0), // Espacio horizontal entre el icono y el texto
+                                Text(
+                                  'Cantidad:',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors
+                                        .white, // Establece el color del texto
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              '${snapshot.data?[index]['cantidad']}',
+                              style: const TextStyle(
+                                  color: Colors
+                                      .white), // Establece el color del texto
+                            ),
+                          ],
+                        ),
+                      ),
                       onTap: () async {
                         await Navigator.pushNamed(context, '/edit', arguments: {
                           'name': snapshot.data?[index]['name'],
+                          'descripcion': snapshot.data?[index]['descripcion'],
+                          'cantidad': snapshot.data?[index]['cantidad'],
                           'uid': snapshot.data?[index]['uid'],
                         });
                         setState(() {});
@@ -129,7 +218,7 @@ class _HomeState extends State<Home> {
             }
           })),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 77, 74, 74),
+        backgroundColor: Colors.grey[850],
         onPressed: () async {
           await Navigator.pushNamed(context, '/add');
           setState(() {});

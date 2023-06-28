@@ -10,6 +10,9 @@ class AddNamePage extends StatefulWidget {
 
 class _AddNamePageState extends State<AddNamePage> {
   TextEditingController nameController = TextEditingController(text: "");
+  TextEditingController descripcionController = TextEditingController(text: "");
+  TextEditingController cantidadController = TextEditingController(text: "");
+
 
   @override
   Widget build(BuildContext context) {
@@ -28,19 +31,19 @@ class _AddNamePageState extends State<AddNamePage> {
                   const InputDecoration(hintText: 'Escribe un producto'),
             ),
             TextField(
-              controller: nameController,
+              controller: descripcionController,
               decoration:
                   const InputDecoration(hintText: 'Escribe una descripción'),
             ),
             TextField(
-              controller: nameController,
+              controller: cantidadController,
               decoration:
                   const InputDecoration(hintText: 'Escribe la cantidad'),
             ),
             SizedBox(height: 20,),
             ElevatedButton(
                 onPressed: () async {
-                  await addProduct(nameController.text).then((_) {
+                  await addProduct(nameController.text, descripcionController.text, cantidadController.text).then((_) {
                     Navigator.pop(context);
                   });
                 },
