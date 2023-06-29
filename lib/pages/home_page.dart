@@ -1,7 +1,9 @@
 import 'package:crud_firebase/services/firebase_service.dart';
 import 'package:flutter/material.dart';
 
+import 'QrScanPage.dart';
 import 'login_page.dart';
+import 'welcome_page.dart';
 
 class Home extends StatefulWidget {
   const Home({
@@ -55,6 +57,26 @@ class _HomeState extends State<Home> {
               title: Text('Configuracion'),
               onTap: () {},
             ),
+            ListTile(
+              leading: Icon(Icons.qr_code_scanner),
+              title: Text('Escanear codigo QR'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => QrScanPage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.arrow_back),
+              title: Text('Regresar'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => WelcomePage()),
+                );
+              },
+            )
           ],
         ),
       ),
@@ -111,7 +133,8 @@ class _HomeState extends State<Home> {
                     key: Key(snapshot.data?[index]['uid']),
                     child: ListTile(
                       title: Container(
-                        color: const Color.fromARGB(255, 77, 74, 74), // Establece el color de fondo gris
+                        color: const Color.fromARGB(255, 77, 74,
+                            74), // Establece el color de fondo gris
                         padding: const EdgeInsets.all(
                             16.0), // Añade un padding al Container si es necesario
                         child: Column(
