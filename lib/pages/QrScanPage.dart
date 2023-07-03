@@ -17,7 +17,7 @@ class _QrScanPageState extends State<QrScanPage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text('Escanear codigo QR'),
-        backgroundColor: const Color.fromARGB(255, 77, 74, 74),
+        backgroundColor: Colors.grey[900],
       ),
       body: Column(
         children: [

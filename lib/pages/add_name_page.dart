@@ -19,7 +19,7 @@ class _AddNamePageState extends State<AddNamePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Añadir Producto'),
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.grey[900],
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -47,6 +47,9 @@ class _AddNamePageState extends State<AddNamePage> {
                     Navigator.pop(context);
                   });
                 },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.grey[900],
+                ),
                 child: const Text('Guardar'))
           ],
         ),

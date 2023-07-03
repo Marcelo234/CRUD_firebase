@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'login_page.dart';
+import 'perfil_page.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key});
@@ -14,7 +15,7 @@ class _WelcomePageState extends State<WelcomePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 77, 74, 74),
+        backgroundColor: Colors.grey[900],
         flexibleSpace: Container(
           alignment: Alignment.center,
           child: SizedBox(
@@ -35,8 +36,8 @@ class _WelcomePageState extends State<WelcomePage> {
               accountName: const Text('Marcelo Ontaneda'),
               accountEmail: const Text('ontanedamarcelo74@gmail.com'),
               currentAccountPicture: Image.asset('assets/ferreteria.png'),
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 77, 74, 74),
+              decoration: BoxDecoration(
+                color: Colors.grey[900],
               ),
             ),
             ListTile(
@@ -52,7 +53,12 @@ class _WelcomePageState extends State<WelcomePage> {
             ListTile(
               leading: const Icon(Icons.person_outline_rounded),
               title: const Text('Perfil'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
+              },
             ),
             ListTile(
               leading: const Icon(Icons.settings),
@@ -70,13 +76,18 @@ class _WelcomePageState extends State<WelcomePage> {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 20.0),
+                Align(
                   alignment: Alignment.center,
-                  child: Text(
-                    'Bienvenidos al sistema',
-                    style:
-                        TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: SizedBox(
+                      height: 100,
+                      width: 100,
+                      child: Image.asset(
+                        'assets/bigtool.png',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
               ],
@@ -84,25 +95,37 @@ class _WelcomePageState extends State<WelcomePage> {
             SizedBox(height: 1.0),
             Card(
               elevation: 10,
-              color: const Color.fromARGB(255, 77, 74, 74),
+              color: Colors.grey[900],
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
+                borderRadius: BorderRadius.circular(20),
+              ),
               child: InkWell(
                 splashColor: Colors.blue.withAlpha(30),
                 onTap: () {
                   Navigator.popAndPushNamed(context, "/home");
                 },
                 child: ListTile(
-                  title: Text(
-                    'Productos',
-                    style: TextStyle(color: Colors.white),
-                    textAlign: TextAlign.center,
-                  ),
-                  subtitle: FractionallySizedBox(
-                    widthFactor: 0.8,
-                    child: AspectRatio(
-                      aspectRatio: 1.0,
-                      child: Image.asset("assets/product.jpeg"),
+                  title: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.shopping_cart,
+                          color: Colors.white,
+                          size: 64,
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          'Productos',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -110,23 +133,35 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
             Card(
               elevation: 10,
-              color: const Color.fromARGB(255, 77, 74, 74),
+              color: Colors.grey[900],
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
+                borderRadius: BorderRadius.circular(20),
+              ),
               child: InkWell(
                 splashColor: Colors.blue.withAlpha(30),
                 onTap: () {},
                 child: ListTile(
-                  title: Text(
-                    'Proveedores',
-                    style: TextStyle(color: Colors.white),
-                    textAlign: TextAlign.center,
-                  ),
-                  subtitle: FractionallySizedBox(
-                    widthFactor: 0.7,
-                    child: AspectRatio(
-                      aspectRatio: 1.0,
-                      child: Image.asset("assets/proveedores.png"),
+                  title: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.people_alt,
+                          color: Colors.white,
+                          size: 64,
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          'Proveedores',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -134,23 +169,35 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
             Card(
               elevation: 10,
-              color: const Color.fromARGB(255, 77, 74, 74),
+              color: Colors.grey[900],
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
+                borderRadius: BorderRadius.circular(20),
+              ),
               child: InkWell(
                 splashColor: Colors.blue.withAlpha(30),
                 onTap: () {},
                 child: ListTile(
-                  title: Text(
-                    'Clientes',
-                    style: TextStyle(color: Colors.white),
-                    textAlign: TextAlign.center,
-                  ),
-                  subtitle: FractionallySizedBox(
-                    widthFactor: 0.8,
-                    child: AspectRatio(
-                      aspectRatio: 1.0,
-                      child: Image.asset("assets/clientes.jpeg"),
+                  title: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.person,
+                          color: Colors.white,
+                          size: 64,
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          'Usuarios',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -158,23 +205,35 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
             Card(
               elevation: 10,
-              color: const Color.fromARGB(255, 77, 74, 74),
+              color: Colors.grey[900],
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
+                borderRadius: BorderRadius.circular(20),
+              ),
               child: InkWell(
                 splashColor: Colors.blue.withAlpha(30),
                 onTap: () {},
                 child: ListTile(
-                  title: Text(
-                    'Compañia',
-                    style: TextStyle(color: Colors.white),
-                    textAlign: TextAlign.center,
-                  ),
-                  subtitle: FractionallySizedBox(
-                    widthFactor: 0.7,
-                    child: AspectRatio(
-                      aspectRatio: 1.0,
-                      child: Image.asset("assets/compania.png"),
+                  title: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.business,
+                          color: Colors.white,
+                          size: 64,
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          'Compañia',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -182,23 +241,37 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
             Card(
               elevation: 10,
-              color: const Color.fromARGB(255, 77, 74, 74),
+              color: Colors.grey[900],
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
+                borderRadius: BorderRadius.circular(20),
+              ),
               child: InkWell(
                 splashColor: Colors.blue.withAlpha(30),
                 onTap: () {},
                 child: ListTile(
-                  title: Text(
-                    'Almacen',
-                    style: TextStyle(color: Colors.white),
-                    textAlign: TextAlign.center,
-                  ),
-                  subtitle: FractionallySizedBox(
-                    widthFactor: 0.8,
-                    child: AspectRatio(
-                      aspectRatio: 1.0,
-                      child: Image.asset('assets/almacen.png'),
+                  title: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.store,
+                            color: Colors.white,
+                            size: 64,
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            'Almacen',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

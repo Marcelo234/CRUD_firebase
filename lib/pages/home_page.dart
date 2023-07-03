@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'QrScanPage.dart';
 import 'login_page.dart';
+import 'perfil_page.dart';
 import 'welcome_page.dart';
 
 class Home extends StatefulWidget {
@@ -21,7 +22,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         centerTitle: true,
         title: Text('Productos'),
-        backgroundColor: const Color.fromARGB(255, 77, 74, 74),
+        backgroundColor: Colors.grey[900],
       ),
       drawer: Drawer(
         child: ListView(
@@ -32,7 +33,7 @@ class _HomeState extends State<Home> {
               accountEmail: Text('ontanedamarcelo74@gmail.com'),
               currentAccountPicture: Image.asset('assets/ferreteria.png'),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 77, 74, 74),
+                color: Colors.grey[900],
               ),
             ),
             ListTile(
@@ -50,7 +51,12 @@ class _HomeState extends State<Home> {
                 Icons.person_outline_rounded,
               ),
               title: Text('Perfil'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
+              },
             ),
             ListTile(
               leading: Icon(Icons.settings),
@@ -133,8 +139,7 @@ class _HomeState extends State<Home> {
                     key: Key(snapshot.data?[index]['uid']),
                     child: ListTile(
                       title: Container(
-                        color: const Color.fromARGB(255, 77, 74,
-                            74), // Establece el color de fondo gris
+                        color: Colors.grey[900], // Establece el color de fondo gris
                         padding: const EdgeInsets.all(
                             16.0), // Añade un padding al Container si es necesario
                         child: Column(
@@ -142,7 +147,7 @@ class _HomeState extends State<Home> {
                           children: [
                             const Row(
                               children: [
-                                Icon(Icons.category,
+                                Icon(Icons.label_outline,
                                     color:
                                         Colors.white), // Añade el primer icono
                                 SizedBox(
