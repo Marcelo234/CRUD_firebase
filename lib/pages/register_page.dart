@@ -45,9 +45,10 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'assets/registro.png',
-                  width: 80,
+                Icon(
+                  Icons.person_add,
+                  size: 64,
+                  color: Colors.white,
                 ),
                 SizedBox(height: 10),
                 Text(
