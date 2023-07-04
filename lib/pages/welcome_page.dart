@@ -175,7 +175,9 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
               child: InkWell(
                 splashColor: Colors.blue.withAlpha(30),
-                onTap: () {},
+                onTap: () {
+                  Navigator.popAndPushNamed(context, "/usuarios");
+                },
                 child: ListTile(
                   title: Container(
                     width: double.infinity,
@@ -211,7 +213,9 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
               child: InkWell(
                 splashColor: Colors.blue.withAlpha(30),
-                onTap: () {},
+                onTap: () {
+                  Navigator.popAndPushNamed(context, "/compañia");
+                },
                 child: ListTile(
                   title: Container(
                     width: double.infinity,
